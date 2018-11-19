@@ -92,6 +92,7 @@ cscope.*
 /src/robinhood/rbh-find
 /src/robinhood/rbh-report
 /src/robinhood/rbh-diff
+/src/robinhood/rbh-rebind
 /src/robinhood/rbh-undelete
 /src/robinhood/robinhood
 /tests/lustre_fs/*.log
