@@ -607,7 +607,7 @@ void printf_entry(GArray *chunks, const wagon_t *id, const attr_set_t *attrs)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wformat-security"
 #endif
-            printf(format);
+            printf("%s", format);
 #if __GNUC__ >= 7
 #pragma GCC diagnostic pop
 #endif
