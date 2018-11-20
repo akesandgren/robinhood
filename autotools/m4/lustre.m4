@@ -6,29 +6,51 @@ AC_DEFUN([AX_LUSTRE_VERSION],
         # Check if any package provides 'lustre-client'
         # Since lustre 2.8, this symbol is provided by both 'lustre' and 'lustre-client'
         # so robinhood only needs to require it.
-        AC_MSG_CHECKING(if any package provides lustre-client)
 
-        if rpm -q --whatprovides lustre-client >/dev/null 2>/dev/null; then
-            AC_MSG_RESULT(yes)
-            LPACKAGE=lustre-client
-            # Assume we want the same version as this package,
-            # whatever 'lustre' or 'lustre-client'
-            AC_MSG_CHECKING(Lustre version)
-            LVERSION=`rpm -q --whatprovides lustre-client --qf "%{Version}\n" 2>/dev/null | grep -v "no package" | cut -d "." -f 1-2`
-            AC_MSG_RESULT($LVERSION)
-        else
-            AC_MSG_RESULT(no)
-            AC_MSG_CHECKING(if lustre is installed)
-
-            # fallback to lustre package
-            LPACKAGE=`rpm -q --whatprovides lustre --qf "%{Name}\n" 2>/dev/null | grep -v "no package"`
-            if test -n "$LPACKAGE"; then
-                LVERSION=`rpm -q $LPACKAGE --qf "%{Version}\n" 2>/dev/null | cut -d "." -f 1-2`
-                AC_MSG_RESULT(found version $LVERSION)
+        AS_IF([test x$uses_dpkg = xyes], [
+            AC_MSG_CHECKING(if lustre-client-utils is installed)
+            if dpkg -l lustre-client-utils >/dev/null 2>/dev/null; then
+                AC_MSG_RESULT(yes)
+                LPACKAGE=lustre-client
+                AC_MSG_CHECKING(Lustre version)
+                LVERSION=`dpkg -l lustre-client-utils 2>/dev/null | grep "^ii" | awk '{print [$]3}' | cut -d "." -f 1-2`
+                AC_MSG_RESULT($LVERSION)
             else
                 AC_MSG_RESULT(no)
+                AC_MSG_CHECKING(if lustre-utils is installed)
+                LPACKAGE=`dpkg -l lustre-utils 2>/dev/null | grep "^ii" | awk '{print [$]2}'`
+                if test -n "$LPACKAGE"; then
+                    LPACKAGE=lustre
+                    LVERSION=`dpkg -l lustre-utils 2>/dev/null | grep "^ii" | awk '{print [$]3}' | cut -d "." -f 1-2`
+                    AC_MSG_RESULT(found version $LVERSION)
+                else
+                    AC_MSG_RESULT(no)
+                fi
             fi
-        fi
+        ], [
+            AC_MSG_CHECKING(if any package provides lustre-client)
+            if rpm -q --whatprovides lustre-client >/dev/null 2>/dev/null; then
+                AC_MSG_RESULT(yes)
+                LPACKAGE=lustre-client
+                # Assume we want the same version as this package,
+                # whatever 'lustre' or 'lustre-client'
+                AC_MSG_CHECKING(Lustre version)
+                LVERSION=`rpm -q --whatprovides lustre-client --qf "%{Version}\n" 2>/dev/null | grep -v "no package" | cut -d "." -f 1-2`
+                AC_MSG_RESULT($LVERSION)
+            else
+                AC_MSG_RESULT(no)
+                AC_MSG_CHECKING(if lustre is installed)
+
+                # fallback to lustre package
+                LPACKAGE=`rpm -q --whatprovides lustre --qf "%{Name}\n" 2>/dev/null | grep -v "no package"`
+                if test -n "$LPACKAGE"; then
+                    LVERSION=`rpm -q $LPACKAGE --qf "%{Version}\n" 2>/dev/null | cut -d "." -f 1-2`
+                    AC_MSG_RESULT(found version $LVERSION)
+                else
+                    AC_MSG_RESULT(no)
+                fi
+            fi
+        ])
 ])
 
 # Get lustre version from sources
