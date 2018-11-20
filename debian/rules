@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+#
+# Created 2018 by Åke Sandgren, <ake.sandgren@hpc2n.umu.se>
+#
+# Copying and modification is unlimited, provided that the modified
+# version is marked as being modified.
+
+# Uncomment this to turn on verbose mode.
+# export DH_VERBOSE=1
+
+DEB_BUILD_GNU_SYSTEM = $(shell dpkg-architecture -qDEB_BUILD_GNU_SYSTEM)
+DEB_BUILD_GNU_CPU = $(shell dpkg-architecture -qDEB_BUILD_GNU_CPU)
+
+%: 
+
+        dh $@

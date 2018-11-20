@@ -1,0 +1,80 @@
+Source: robinhood
+Section: admin
+Priority: optional
+Maintainer: Åke Sandgren <ake.sandgren@hpc2n.umu.se>
+Standards-Version: 3.8.3
+Build-Depends: debhelper (>= 8.9.7), flex, bison, lustre-dev (>= 2.11), libjemalloc-dev
+Homepage: https://github.com/cea-hpc/robinhood
+
+Package: robinhood-lustre
+Section: admin
+Architecture: amd64
+Priority: optional
+Conflicts: robinhood-posix
+Provides: robinhood
+Depends: ${shlibs:Depends}, ${misc:Depends}, lustre-client-utils (>= 2.11)
+Description: Robinhood Policy Engine for Lustre filesystems
+ Robinhood is a tool for monitoring and applying policies to file system
+ entries.  It is designed to process all its tasks in parallel, so it is
+ particularly adapted for managing large file systems with millions of
+ entries and petabytes of data.
+ .
+ This package contains Robinhood for Lustre file systems. If you need
+ Robinhood for Posix file systems, use robinhood-posix instead.
+
+Package: robinhood-posix
+Section: admin
+Architecture: amd64
+Priority: optional
+Conflicts: robinhood-lustre
+Provides: robinhood
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Robinhood Policy engine for POSIX filesystems
+ Robinhood is a tool for monitoring and applying policies to file system
+ entries.  It is designed to process all its tasks in parallel, so it is
+ particularly adapted for managing large file systems with millions of
+ entries and petabytes of data.
+ .
+ This package contains Robinhood for Posix file systems. If you need
+ Robinhood for Lustre file systems, use robinhood-lustre instead.
+
+Package: robinhood-adm
+Section: admin
+Architecture: amd64
+Priority: optional
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: admin/config helper for Robinhood PolicyEngine
+ Robinhood is a tool for monitoring and applying policies to file system
+ entries.  It is designed to process all its tasks in parallel, so it is
+ particularly adapted for managing large file systems with millions of
+ entries and petabytes of data.
+ .
+ This package provides an admin/config helper for Robinhood PolicyEngine
+ (command rbh-config).
+
+Package: robinhood-webgui
+Section: admin
+Architecture: amd64
+Priority: optional
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Web interface to vizualize filesystems stats from Robinhood
+ Robinhood is a tool for monitoring and applying policies to file system
+ entries.  It is designed to process all its tasks in parallel, so it is
+ particularly adapted for managing large file systems with millions of
+ entries and petabytes of data.
+ .
+ This uses Robinhood database to display misc. user and group stats.
+
+Package: robinhood-test
+Section: admin
+Architecture: amd64
+Priority: optional
+Depends: ${shlibs:Depends}, ${misc:Depends}, robinhood, robinhood-adm, bc
+Description: Test suite for Robinhood
+ Robinhood is a tool for monitoring and applying policies to file system
+ entries.  It is designed to process all its tasks in parallel, so it is
+ particularly adapted for managing large file systems with millions of
+ entries and petabytes of data.
+ .
+ This package contains Lustre and Posix tests for Robinhood.
+
