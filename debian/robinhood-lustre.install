@@ -6,5 +6,6 @@ debian/tmp/usr/sbin/rbh-diff	usr/sbin
 debian/tmp/usr/sbin/rbh-undelete	usr/sbin
 debian/tmp/usr/sbin/rbh-rebind	usr/sbin
 debian/tmp/usr/sbin/rbh_cksum.sh	usr/sbin
+scripts/sysconfig_robinhood       etc/default/robinhood
 scripts/robinhood.service       lib/systemd/system
 scripts/robinhood@.service       lib/systemd/system
