@@ -12,7 +12,7 @@ Architecture: amd64
 Priority: optional
 Conflicts: robinhood-posix
 Provides: robinhood
-Depends: ${shlibs:Depends}, ${misc:Depends}, lustre-client-utils (>= 2.11)
+Depends: ${shlibs:Depends}, ${misc:Depends}, robinhood-common, lustre-client-utils (>= 2.11)
 Description: Robinhood Policy Engine for Lustre filesystems
  Robinhood is a tool for monitoring and applying policies to file system
  entries.  It is designed to process all its tasks in parallel, so it is
@@ -28,7 +28,7 @@ Architecture: amd64
 Priority: optional
 Conflicts: robinhood-lustre
 Provides: robinhood
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, robinhood-common
 Description: Robinhood Policy engine for POSIX filesystems
  Robinhood is a tool for monitoring and applying policies to file system
  entries.  It is designed to process all its tasks in parallel, so it is
@@ -37,6 +37,19 @@ Description: Robinhood Policy engine for POSIX filesystems
  .
  This package contains Robinhood for Posix file systems. If you need
  Robinhood for Lustre file systems, use robinhood-lustre instead.
+
+Package: robinhood-common
+Section: admin
+Architecture: all
+Priority: optional
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Common files for Robinhood packages
+ Robinhood is a tool for monitoring and applying policies to file system
+ entries.  It is designed to process all its tasks in parallel, so it is
+ particularly adapted for managing large file systems with millions of
+ entries and petabytes of data.
+ .
+ This package provides the files common to robinhood-lustre and robinhood-posix.
 
 Package: robinhood-adm
 Section: admin
