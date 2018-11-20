@@ -17,4 +17,8 @@ DEB_BUILD_GNU_CPU = $(shell dpkg-architecture -qDEB_BUILD_GNU_CPU)
 override_dh_auto_configure:
 	dh_auto_configure -- --enable-mds-stat --enable-fid2path-leading-slash
 
+override_dh_auto_install:
+	dh_auto_install
+	cp scripts/sysconfig_robinhood debian/tmp/etc/default/robinhood
+
 # vim:sw=4:sts=8:ts=8:noexpandtab:
