@@ -51,20 +51,6 @@ Description: Common files for Robinhood packages
  .
  This package provides the files common to robinhood-lustre and robinhood-posix.
 
-Package: robinhood-adm
-Section: admin
-Architecture: amd64
-Priority: optional
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: admin/config helper for Robinhood PolicyEngine
- Robinhood is a tool for monitoring and applying policies to file system
- entries.  It is designed to process all its tasks in parallel, so it is
- particularly adapted for managing large file systems with millions of
- entries and petabytes of data.
- .
- This package provides an admin/config helper for Robinhood PolicyEngine
- (command rbh-config).
-
 Package: robinhood-webgui
 Section: admin
 Architecture: amd64
