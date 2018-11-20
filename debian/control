@@ -64,11 +64,11 @@ Description: Web interface to vizualize filesystems stats from Robinhood
  .
  This uses Robinhood database to display misc. user and group stats.
 
-Package: robinhood-test
+Package: robinhood-tests
 Section: admin
 Architecture: amd64
 Priority: optional
-Depends: ${shlibs:Depends}, ${misc:Depends}, robinhood, robinhood-adm, bc
+Depends: ${shlibs:Depends}, ${misc:Depends}, robinhood, robinhood-common, bc
 Description: Test suite for Robinhood
  Robinhood is a tool for monitoring and applying policies to file system
  entries.  It is designed to process all its tasks in parallel, so it is
