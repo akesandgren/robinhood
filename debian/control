@@ -42,7 +42,7 @@ Package: robinhood-common
 Section: admin
 Architecture: all
 Priority: optional
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}
 Description: Common files for Robinhood packages
  Robinhood is a tool for monitoring and applying policies to file system
  entries.  It is designed to process all its tasks in parallel, so it is
@@ -55,7 +55,7 @@ Package: robinhood-webgui
 Section: admin
 Architecture: amd64
 Priority: optional
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}
 Description: Web interface to vizualize filesystems stats from Robinhood
  Robinhood is a tool for monitoring and applying policies to file system
  entries.  It is designed to process all its tasks in parallel, so it is
