@@ -12,5 +12,4 @@ DEB_BUILD_GNU_SYSTEM = $(shell dpkg-architecture -qDEB_BUILD_GNU_SYSTEM)
 DEB_BUILD_GNU_CPU = $(shell dpkg-architecture -qDEB_BUILD_GNU_CPU)
 
 %: 
-
-        dh $@
+	dh $@
