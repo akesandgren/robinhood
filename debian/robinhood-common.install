@@ -1,4 +1,4 @@
 doc/templates/includes/*.inc	usr/share/doc/robinhood-common/includes
-doc/templates/*.conf		usr/share/doc/robinhood-common/templates/
-debian/tmp/usr/sbin/rbh-config  usr/sbin/rbh-config
+doc/templates/*.conf		usr/share/doc/robinhood-common/templates
+debian/tmp/usr/sbin/rbh-config  usr/sbin
 debian/tmp/usr/share/man/man1/r*	usr/share/man/man1
