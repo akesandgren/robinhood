@@ -46,19 +46,18 @@ function db_check
     fi
     echo "MySQL version is $version."
 
-    service=mysqld
-    # mysqld is named mysql on some systems
-    if [ -x /etc/init.d/mysql ]; then
-        service=mysql
-    fi
-    rpm -q mariadb > /dev/null && service=mariadb
     running=0
-    echo "Checking service $service..."
-    if [ -x /usr/bin/systemctl ]; then
-        /usr/bin/systemctl status $service && running=1
+    if [[ -x `which systemctl` ]]; then
+        service=`systemctl list-unit-files | grep -E 'mysql|mariadb' | cut -d. -f1`
+        systemctl --no-pager status $service >/dev/null 2>&1 && running=1
     else
-        /sbin/service $service status && running=1
+        service=`service --status-all 2>&1 | grep mysql | sed 's/.*mysql/mysql/'`
+        if [ -z "$service" ]; then
+            service=`service --status-all 2>&1 | grep mariadb | sed 's/.*mariadb/mariadb/'`
+        fi
+        service $service status && running=1
     fi
+    echo "Checking service $service..."
 
     if (( $running == 0 )); then
         echo "Service '$service' is not running."
