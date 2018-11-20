@@ -4,8 +4,8 @@ Description=Robinhood server for %I
 [Service]
 Type=simple
 KillMode=mixed
-EnvironmentFile=-@CONFDIR@/sysconfig/robinhood
-EnvironmentFile=-@CONFDIR@/sysconfig/robinhood.%I
+EnvironmentFile=-@CONFDIR@/default/robinhood
+EnvironmentFile=-@CONFDIR@/default/robinhood.%I
 LimitNOFILE=8096
 ExecStart=@SBINDIR@/robinhood $RBH_OPT -f @CONFDIR@/robinhood.d/%I.conf
 ExecReload=/bin/kill -HUP $MAINPID

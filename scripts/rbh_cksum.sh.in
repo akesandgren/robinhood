@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-[[ -e /etc/sysconfig/rbh_cksum ]] && . /etc/sysconfig/rbh_cksum
+[[ -e /etc/default/rbh_cksum ]] && . /etc/default/rbh_cksum
 
 # "defaults" section
 RBH_CKSUM_CMD=${RBH_CKSUM_CMD:-sha1sum}
