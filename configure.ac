@@ -141,6 +141,9 @@ DV_CMD="stat -c %Y-%s"
 # program to be used for mailing
 AX_PROG_MAIL
 
+# Check for rpm vs dpkg
+RH_USES_DPKG
+
 AC_ARG_ENABLE([common-rpms], AS_HELP_STRING([--disable-common-rpms],
               [Disable build of common RPMs, only build FS specific packages]),
               [common_rpms="$enableval"],[common_rpms="yes"])
