@@ -1,9 +1,8 @@
-debian/tmp/usr/bin/rbh-du	usr/bin/rbh-du
-debian/tmp/usr/bin/rbh-find	usr/bin/rbh-find
+debian/tmp/usr/bin/*	usr/bin
+debian/tmp/usr/lib/robinhood/lib*so*    usr/lib
 debian/tmp/usr/sbin/robinhood	usr/sbin/robinhood
 debian/tmp/usr/sbin/rbh-report	usr/sbin/rbh-report
 debian/tmp/usr/sbin/rbh-diff	usr/sbin/rbh-diff
 debian/tmp/usr/sbin/rbh-undelete	usr/sbin/rbh-undelete
 debian/tmp/usr/sbin/rbh-rebind	usr/sbin/rbh-rebind
-debian/tmp/usr/sbin/rbh_cksum.sh	usr/sbin/rbh_cksum.sh
 debian/tmp/usr/sbin/rbh_cksum.sh	usr/sbin/rbh_cksum.sh
