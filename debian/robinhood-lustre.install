@@ -1,5 +1,5 @@
 debian/tmp/usr/bin/*	usr/bin
-debian/tmp/usr/lib/robinhood/lib*so*    usr/lib
+debian/tmp/usr/lib/x86_64-linux-gnu/robinhood/lib*so*    usr/lib/x86_64-linux-gnu
 debian/tmp/usr/sbin/robinhood	usr/sbin
 debian/tmp/usr/sbin/rbh-report	usr/sbin
 debian/tmp/usr/sbin/rbh-diff	usr/sbin
