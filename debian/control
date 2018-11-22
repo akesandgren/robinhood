@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Åke Sandgren <ake.sandgren@hpc2n.umu.se>
 Standards-Version: 3.8.3
-Build-Depends: debhelper (>= 9), flex, bison, lustre-dev (>= 2.11), libjemalloc-dev, libmysqlclient-dev, libglib2.0-dev
+Build-Depends: debhelper (>= 9), flex, bison, lustre-dev (>= 2.11), libjemalloc-dev, libmysqlclient-dev, libglib2.0-dev, libjansson-dev
 Homepage: https://github.com/cea-hpc/robinhood
 
 Package: robinhood-lustre
