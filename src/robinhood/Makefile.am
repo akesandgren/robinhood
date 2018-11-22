@@ -38,7 +38,7 @@ robinhood_SOURCES=rbh_daemon.c
 robinhood_CFLAGS=$(AM_CFLAGS) $(FS_CFLAGS) $(MISC_FLAGS)
 robinhood_LDFLAGS=-rdynamic ./librobinhood.la $(DB_LDFLAGS) $(FS_LDFLAGS) $(PURPOSE_LDFLAGS) $(AM_LDFLAGS)
 
-rbh_jreader_SOURCES=rbh_jreader.c pfid_check.c
+rbh_jreader_SOURCES=rbh_jreader.c #pfid_check.c
 rbh_jreader_CFLAGS=$(AM_CFLAGS) $(FS_FLAGS) $(MISC_FLAGS)
 rbh_jreader_LDFLAGS=-rdynamic ./librobinhood.la $(DB_LDFLAGS) $(FS_LDFLAGS) $(PURPOSE_LDFLAGS) $(AM_LDFLAGS) -ljansson
 
