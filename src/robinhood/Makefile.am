@@ -4,8 +4,6 @@ AM_LDFLAGS= -lpthread -rpath $(pkglibdir)
 DATE=`date --utc --date @$${SOURCE_DATE_EPOCH:-$$(date +%s)} '+%F %T'`
 MISC_FLAGS="-DCOMPIL_DATE=\"$(DATE)\""
 
-noinst_LTLIBRARIES=librobinhood.la
-
 rbh_libs=   ../cfg_parsing/librbhcfg.la         \
             ../fs_scan/libfsscan.la             \
             ../entry_processor/libentryproc.la  \
@@ -18,6 +16,7 @@ endif
 rbh_libs += ../list_mgr/liblistmgr.la \
             ../common/libcommontools.la ../cfg_parsing/libconfigparsing.la
 
+pkglib_LTLIBRARIES=librobinhood.la
 librobinhood_la_SOURCES=cmd_helpers.h cmd_helpers.c
 librobinhood_la_LIBADD=$(rbh_libs)
 
