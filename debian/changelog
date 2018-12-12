@@ -1,3 +1,9 @@
+robinhood (3.1.4.hpc2n0.2) xenial; urgency=medium
+
+  * Allow the robinhood instances to be enabled to start at boot.
+
+ -- Ake Sandgren <ake@r-rh01.hpc2n.umu.se>  Wed, 12 Dec 2018 14:23:07 +0100
+
 robinhood (3.1.4.hpc2n0.1) xenial; urgency=medium
 
   * Initial upstream version of 3.1.4
